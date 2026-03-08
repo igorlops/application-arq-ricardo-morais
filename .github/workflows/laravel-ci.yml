@@ -2,50 +2,116 @@ name: Laravel CI
 
 on:
   push:
-    branches: [ "main", "develop" ]
+    branches: ["main", "develop"]
   pull_request:
-    branches: [ "main", "develop" ]
+    branches: ["main", "develop"]
 
-jobs: # <-- Bloco principal para todos os jobs
-  laravel-tests: # <-- Primeiro job
+jobs:
+
+  laravel-tests:
     runs-on: ubuntu-latest
+
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
+
       - name: Setup PHP
         uses: shivammathur/setup-php@v2
         with:
-          php-version: '8.2'
+          php-version: "8.2"
           extensions: mbstring, dom, fileinfo, mysql
           coverage: none
+
+      - name: Cache Composer dependencies
+        uses: actions/cache@v4
+        with:
+          path: ~/.composer/cache
+          key: composer-${{ hashFiles('**/composer.lock') }}
+          restore-keys: composer-
+
       - name: Install Composer dependencies
-        run: composer install -q --no-ansi --no-interaction --no-scripts --no-progress --prefer-dist
-      - name: Copy .env file
+        run: composer install --prefer-dist --no-progress --no-interaction
+
+      - name: Copy .env
         run: php -r "file_exists('.env') || copy('.env.example', '.env');"
-      - name: Generate application key
+
+      - name: Generate app key
         run: php artisan key:generate
+
       - name: Run tests
         run: vendor/bin/phpunit
 
-  deploy: # <-- Segundo job, agora corretamente dentro de 'jobs'
-    needs: laravel-tests # Depende do sucesso do primeiro job
+
+  deploy:
+    needs: laravel-tests
     runs-on: ubuntu-latest
+
     steps:
-      - name: Checkout repository # É necessário fazer o checkout novamente em cada job
-        uses: actions/checkout@v3
-      - name: Deploy to Shared Hosting
-        uses: appleboy/ssh-action@master
+
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+
+      # DEBUG: verificar se secrets existem
+      - name: Debug secrets presence
+        run: |
+          echo "Checking secrets..."
+
+          [ -z "${{ secrets.SSH_HOST }}" ] && echo "SSH_HOST missing" || echo "SSH_HOST OK"
+          [ -z "${{ secrets.SSH_USERNAME }}" ] && echo "SSH_USERNAME missing" || echo "SSH_USERNAME OK"
+          [ -z "${{ secrets.SSH_PORT }}" ] && echo "SSH_PORT missing" || echo "SSH_PORT OK"
+          [ -z "${{ secrets.SSH_PRIVATE_KEY }}" ] && echo "SSH_PRIVATE_KEY missing" || echo "SSH_PRIVATE_KEY OK"
+
+
+      # Testar conexão TCP com servidor
+      - name: Test SSH port connectivity
+        run: |
+          echo "Testing TCP connection..."
+          nc -zv ${{ secrets.SSH_HOST }} ${{ secrets.SSH_PORT }}
+
+
+      # Testar SSH manualmente
+      - name: Test SSH login
+        run: |
+          mkdir -p ~/.ssh
+          echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/deploy_key
+          chmod 600 ~/.ssh/deploy_key
+
+          ssh -o StrictHostKeyChecking=no \
+              -i ~/.ssh/deploy_key \
+              -p ${{ secrets.SSH_PORT }} \
+              ${{ secrets.SSH_USERNAME }}@${{ secrets.SSH_HOST }} \
+              "echo SSH connection successful"
+
+
+      # Deploy real
+      - name: Deploy to server
+        uses: appleboy/ssh-action@v1.0.3
         with:
           host: ${{ secrets.SSH_HOST }}
           username: ${{ secrets.SSH_USERNAME }}
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           port: ${{ secrets.SSH_PORT }}
           script: |
+            set -e
+
             cd /home/u909427438/domains/vitrinesigo.shop/public_html/arq-ricardo-morais
+
+            echo "Pulling latest code..."
             git pull origin main
-            rm -f bootstrap/cache/*.php
-            composer install --no-dev --optimize-autoloader
+
+            echo "Installing composer dependencies..."
+            composer install --no-dev --optimize-autoloader --no-interaction
+
+            echo "Clearing Laravel caches..."
+            php artisan optimize:clear
+
+            echo "Rebuilding caches..."
             php artisan config:cache
             php artisan route:cache
             php artisan view:cache
+
+            echo "Running migrations..."
             php artisan migrate --force
+
+            echo "Deploy finished successfully."
