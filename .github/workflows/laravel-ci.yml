@@ -41,7 +41,7 @@ jobs: # <-- Bloco principal para todos os jobs
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           port: ${{ secrets.SSH_PORT }}
           script: |
-            cd /home/u909427438/domains/sigowebsolutions.com.br/public_html/cardapio
+            cd /home/u909427438/domains/vitrinesigo.shop/public_html/arq-ricardo-morais
             git pull origin main
             rm -f bootstrap/cache/*.php
             composer install --no-dev --optimize-autoloader
