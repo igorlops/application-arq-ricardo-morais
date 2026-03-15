@@ -14,6 +14,12 @@ Route::get('/blog', [PageController::class, 'blog'])->name('blog');
 Route::get('/blog/{slug}', [PageController::class, 'post'])->name('blog.post');
 Route::get('/contato', [PageController::class, 'contact'])->name('contact');
 Route::post('/contato', [PageController::class, 'storeContact'])->name('contact.store');
+Route::get('/reforma', function() {
+    return view('pages.lp-reforma');
+})->name('reforma');
+Route::get('/challe', function() {
+    return view('pages.challe');
+})->name('challe');
 
 // Authentication Routes
 Route::middleware('guest')->group(function () {
