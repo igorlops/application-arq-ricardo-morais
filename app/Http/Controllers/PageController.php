@@ -24,6 +24,26 @@ class PageController extends Controller
         return view('pages.services');
     }
 
+    public function residentialProjects()
+    {
+        return view('pages.residential-projects');
+    }
+
+    public function commercialProjects()
+    {
+        return view('pages.commercial-projects');
+    }
+
+    public function interiorDesign()
+    {
+        return view('pages.interior-design');
+    }
+
+    public function threeDDesign()
+    {
+        return view('pages.3d-design');
+    }
+
     public function blog()
     {
         $posts = Post::where('status', true)->latest('published_at')->paginate(9);

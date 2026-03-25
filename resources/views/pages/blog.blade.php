@@ -1,56 +1,68 @@
 <x-app-layout>
     
-    <!-- Header -->
-    <section class="py-20 md:py-32 bg-white border-b border-gray-100">
-        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center pt-10">
-            <h1 class="text-5xl md:text-6xl lg:text-7xl font-serif font-bold text-gray-900 mb-6">Jornal</h1>
-            <p class="text-lg md:text-xl text-gray-500 font-light leading-relaxed">
+    <!-- Hero Section -->
+    <section class="relative py-32 md:py-40 bg-brand-dark overflow-hidden">
+        <div class="absolute inset-0 z-0">
+            <img src="https://images.unsplash.com/photo-1497366811353-6870744d04b2?auto=format&fit=crop&w=2000&q=80" alt="Blog" class="w-full h-full object-cover opacity-20 filter grayscale">
+            <div class="absolute inset-0 bg-gradient-to-b from-brand-dark/50 via-brand-dark/80 to-brand-dark"></div>
+        </div>
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10 pt-10">
+            <div class="flex items-center justify-center gap-4 mb-6 reveal">
+                <div class="h-px w-12 bg-brand-gold"></div>
+                <p class="text-brand-gold uppercase tracking-[0.3em] text-xs font-semibold">Reflexões & Inspirações</p>
+                <div class="h-px w-12 bg-brand-gold"></div>
+            </div>
+            <h1 class="text-5xl md:text-6xl lg:text-7xl font-serif font-bold text-white mb-6 reveal delay-100">Jornal</h1>
+            <p class="text-lg md:text-xl text-white/90 font-light leading-relaxed max-w-2xl mx-auto reveal delay-200">
                 Reflexões sobre design, sustentabilidade, inspirações e acompanhamento de nossas obras mais recentes.
             </p>
         </div>
     </section>
 
     <!-- Blog Grid -->
-    <section class="py-24 bg-gray-50">
+    <section class="py-24 bg-brand-light">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="grid grid-cols-1 lg:grid-cols-4 gap-12">
                 <!-- Main Content (Posts) -->
                 <div class="lg:col-span-3">
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
                         @forelse($posts as $post)
-                            <article class="group relative bg-white p-6 shadow-sm hover:shadow-2xl transition-all duration-500 border border-gray-100 flex flex-col h-full">
+                            <article class="reveal bg-white group relative hover:shadow-2xl transition-all duration-500 border border-gray-100 flex flex-col h-full overflow-hidden">
                                 <a href="{{ route('blog.post', $post->slug) }}" class="absolute inset-0 z-10"></a>
                                 
-                                <div class="mb-6 overflow-hidden">
+                                <div class="mb-0 overflow-hidden img-zoom-hover">
                                     @if($post->featured_image)
-                                        <img src="{{ asset('storage/' . $post->featured_image) }}" alt="{{ $post->title }}" class="w-full h-56 object-cover filter grayscale group-hover:grayscale-0 transition duration-700 transform group-hover:scale-110">
+                                        <img src="{{ asset('storage/' . $post->featured_image) }}" alt="{{ $post->title }}" class="w-full h-56 object-cover filter grayscale group-hover:grayscale-0 transition duration-700">
                                     @else
-                                        <div class="w-full h-56 bg-gray-100 flex items-center justify-center">
-                                            <span class="text-gray-400 font-serif font-light italic">Sem Imagem</span>
+                                        <div class="w-full h-56 bg-brand-light flex items-center justify-center">
+                                            <span class="text-brand-gray font-serif font-light italic">Sem Imagem</span>
                                         </div>
                                     @endif
                                 </div>
 
-                                <div class="text-xs uppercase tracking-widest text-gray-400 mb-3 block">
-                                    {{ $post->published_at->format('M d, Y') }}
-                                </div>
-                                
-                                <h2 class="text-2xl font-serif font-bold text-gray-900 group-hover:text-gray-600 transition mb-4">
-                                    {{ $post->title }}
-                                </h2>
-                                
-                                <p class="text-gray-600 font-light text-sm line-clamp-3 mb-6 flex-grow">
-                                    {{ $post->excerpt ?? Str::limit(strip_tags($post->content), 120) }}
-                                </p>
-                                
-                                <div class="mt-auto flex items-center text-xs font-bold uppercase tracking-widest text-gray-900 group-hover:text-blue-600 transition">
-                                    Ler Artigo
-                                    <svg class="w-4 h-4 ml-2 transform group-hover:translate-x-2 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+                                <div class="p-8 flex flex-col flex-grow">
+                                    <div class="text-xs uppercase tracking-widest text-brand-gold mb-3 block font-semibold">
+                                        {{ $post->published_at->format('M d, Y') }}
+                                    </div>
+                                    
+                                    <h2 class="text-2xl font-serif font-bold text-brand-dark group-hover:text-brand-gold transition mb-4">
+                                        {{ $post->title }}
+                                    </h2>
+                                    
+                                    <p class="text-brand-gray font-light text-sm line-clamp-3 mb-6 flex-grow leading-relaxed">
+                                        {{ $post->excerpt ?? Str::limit(strip_tags($post->content), 120) }}
+                                    </p>
+                                    
+                                    <div class="mt-auto flex items-center text-xs font-bold uppercase tracking-widest text-brand-dark group-hover:text-brand-gold transition">
+                                        Ler Artigo
+                                        <i data-lucide="arrow-right" class="w-4 h-4 ml-2 transform group-hover:translate-x-2 transition-transform"></i>
+                                    </div>
                                 </div>
                             </article>
                         @empty
                             <div class="col-span-full py-24 text-center">
-                                <p class="text-2xl font-serif text-gray-400">Nenhum artigo publicado ainda.</p>
+                                <i data-lucide="file-text" class="w-16 h-16 text-brand-gold mx-auto mb-6"></i>
+                                <p class="text-2xl font-serif text-brand-gray">Nenhum artigo publicado ainda.</p>
                             </div>
                         @endforelse
                     </div>
@@ -64,50 +76,62 @@
                 </div>
 
                 <!-- Sidebar -->
-                <aside class="lg:col-span-1 border-t lg:border-t-0 lg:border-l border-gray-200 pt-12 lg:pt-0 lg:pl-12">
-                    <div class="sticky top-24 space-y-12">
+                <aside class="lg:col-span-1">
+                    <div class="sticky top-32 space-y-12">
                         <!-- About the Journal -->
-                        <div>
-                            <h3 class="text-sm font-bold uppercase tracking-widest text-gray-900 mb-6">Sobre o Jornal</h3>
-                            <p class="text-gray-500 font-light text-sm leading-relaxed">
+                        <div class="reveal bg-white p-8 border border-gray-100 shadow-sm">
+                            <div class="flex items-center gap-3 mb-6">
+                                <div class="h-px w-6 bg-brand-gold"></div>
+                                <h3 class="text-sm font-bold uppercase tracking-widest text-brand-dark">Sobre o Jornal</h3>
+                            </div>
+                            <p class="text-brand-gray font-light text-sm leading-relaxed">
                                 Um espaço dedicado a ensaios, referências estéticas e reflexões sobre como a arquitetura molda nossa vida cotidiana, curado pela nossa equipe.
                             </p>
                         </div>
                         
                         <!-- Categorias Placeholder -->
-                        <div>
-                            <h3 class="text-sm font-bold uppercase tracking-widest text-gray-900 mb-6">Tópicos</h3>
+                        <div class="reveal delay-100 bg-white p-8 border border-gray-100 shadow-sm">
+                            <div class="flex items-center gap-3 mb-6">
+                                <div class="h-px w-6 bg-brand-gold"></div>
+                                <h3 class="text-sm font-bold uppercase tracking-widest text-brand-dark">Tópicos</h3>
+                            </div>
                             <ul class="space-y-4">
-                                <li><a href="#" class="text-gray-500 hover:text-gray-900 text-sm font-light transition">Design Minimalista</a></li>
-                                <li><a href="#" class="text-gray-500 hover:text-gray-900 text-sm font-light transition">Sustentabilidade em Foco</a></li>
-                                <li><a href="#" class="text-gray-500 hover:text-gray-900 text-sm font-light transition">Acompanhamento de Obras</a></li>
-                                <li><a href="#" class="text-gray-500 hover:text-gray-900 text-sm font-light transition">Entrevistas e Análises</a></li>
-                                <li><a href="#" class="text-gray-500 hover:text-gray-900 text-sm font-light transition">Inspirações</a></li>
+                                <li><a href="#" class="text-brand-gray hover:text-brand-gold text-sm font-light transition flex items-center gap-2"><i data-lucide="chevron-right" class="w-3 h-3"></i> Design Minimalista</a></li>
+                                <li><a href="#" class="text-brand-gray hover:text-brand-gold text-sm font-light transition flex items-center gap-2"><i data-lucide="chevron-right" class="w-3 h-3"></i> Sustentabilidade em Foco</a></li>
+                                <li><a href="#" class="text-brand-gray hover:text-brand-gold text-sm font-light transition flex items-center gap-2"><i data-lucide="chevron-right" class="w-3 h-3"></i> Acompanhamento de Obras</a></li>
+                                <li><a href="#" class="text-brand-gray hover:text-brand-gold text-sm font-light transition flex items-center gap-2"><i data-lucide="chevron-right" class="w-3 h-3"></i> Entrevistas e Análises</a></li>
+                                <li><a href="#" class="text-brand-gray hover:text-brand-gold text-sm font-light transition flex items-center gap-2"><i data-lucide="chevron-right" class="w-3 h-3"></i> Inspirações</a></li>
                             </ul>
                         </div>
 
                         <!-- Posts Recentes -->
-                        <div>
-                            <h3 class="text-sm font-bold uppercase tracking-widest text-gray-900 mb-6">Artigos Recentes</h3>
+                        <div class="reveal delay-200 bg-white p-8 border border-gray-100 shadow-sm">
+                            <div class="flex items-center gap-3 mb-6">
+                                <div class="h-px w-6 bg-brand-gold"></div>
+                                <h3 class="text-sm font-bold uppercase tracking-widest text-brand-dark">Artigos Recentes</h3>
+                            </div>
                             <div class="space-y-6">
                                 @foreach($posts->take(3) as $recentPost)
                                     <div class="group relative">
                                         <a href="{{ route('blog.post', $recentPost->slug) }}" class="absolute inset-0 z-10"></a>
-                                        <div class="text-xs uppercase tracking-widest text-gray-400 mb-1">{{ $recentPost->published_at->format('M d, Y') }}</div>
-                                        <div class="block text-gray-900 font-serif font-bold text-sm group-hover:text-gray-600 transition">{{ $recentPost->title }}</div>
+                                        <div class="text-xs uppercase tracking-widest text-brand-gold mb-1 font-semibold">{{ $recentPost->published_at->format('M d, Y') }}</div>
+                                        <div class="block text-brand-dark font-serif font-bold text-sm group-hover:text-brand-gold transition leading-tight">{{ $recentPost->title }}</div>
                                     </div>
                                 @endforeach
                             </div>
                         </div>
                         
                         <!-- Newsletter -->
-                        <div class="bg-gray-50 p-6 border border-gray-100">
-                            <h3 class="text-sm font-bold uppercase tracking-widest text-gray-900 mb-3">Newsletter</h3>
-                            <p class="text-gray-500 font-light text-xs mb-4">Receba ensaios exclusivos diretamente na sua caixa de entrada.</p>
+                        <div class="reveal delay-300 bg-brand-gold p-8">
+                            <div class="flex items-center gap-3 mb-4">
+                                <i data-lucide="mail" class="w-5 h-5 text-brand-dark"></i>
+                                <h3 class="text-sm font-bold uppercase tracking-widest text-brand-dark">Newsletter</h3>
+                            </div>
+                            <p class="text-brand-dark/70 font-light text-xs mb-4">Receba ensaios exclusivos diretamente na sua caixa de entrada.</p>
                             <form action="#" method="POST" class="space-y-3">
                                 @csrf
-                                <input type="email" placeholder="Seu e-mail" class="w-full border-gray-300 bg-white text-sm focus:ring-0 focus:border-gray-900 p-3" required>
-                                <button type="submit" class="w-full bg-gray-900 text-white text-xs uppercase tracking-widest font-bold py-3 hover:bg-gray-800 transition shadow-sm">Assinar</button>
+                                <input type="email" placeholder="Seu e-mail" class="w-full border-0 border-b border-brand-dark/30 bg-transparent text-sm focus:ring-0 focus:border-brand-dark py-2 text-brand-dark placeholder-brand-dark/50 outline-none" required>
+                                <button type="submit" class="w-full bg-brand-dark hover:bg-white text-brand-gold hover:text-brand-dark text-xs uppercase tracking-widest font-bold py-3 transition shadow-sm">Assinar</button>
                             </form>
                         </div>
                     </div>

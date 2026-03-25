@@ -19,51 +19,144 @@
     @endif
 
     <!-- Fonts -->
-    <link rel="preconnect" href="https://fonts.bunny.net">
-    <link href="https://fonts.bunny.net/css?family=playfair-display:400,600,700|inter:300,400,500,600"
-        rel="stylesheet" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
 
     <!-- Scripts -->
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 
     <style>
-        body {
-            font-family: 'Inter', sans-serif;
+        :root {
+            --brand-gold: #C5A880;
+            --brand-gold-hover: #B0946B;
+            --brand-dark: #111111;
+            --brand-surface: #1A1A1A;
+            --brand-light: #F8F9FA;
+            --brand-gray: #888888;
         }
 
-        h1,
-        h2,
-        h3,
-        h4,
-        h5,
-        h6,
-        .font-serif {
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--brand-light);
+            color: var(--brand-dark);
+        }
+
+        h1, h2, h3, h4, h5, h6, .font-serif {
             font-family: 'Playfair Display', serif;
         }
+
+        /* Typography selections */
+        ::selection {
+            background-color: #C5A880;
+            color: #111;
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #111; }
+        ::-webkit-scrollbar-thumb { background: #C5A880; border-radius: 4px; }
+
+        /* Reveal Animations */
+        .reveal {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: all 0.9s cubic-bezier(0.5, 0, 0, 1);
+        }
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .delay-100 { transition-delay: 100ms; }
+        .delay-200 { transition-delay: 200ms; }
+        .delay-300 { transition-delay: 300ms; }
+
+        /* Image zoom hover effect */
+        .img-zoom-hover { overflow: hidden; }
+        .img-zoom-hover img { transition: transform 0.7s ease; }
+        .img-zoom-hover:hover img { transform: scale(1.05); }
+
+        /* Gold accent line */
+        .gold-line {
+            width: 48px;
+            height: 2px;
+            background-color: #C5A880;
+        }
+
+        /* Brand colors utility classes */
+        .text-brand-gold { color: #C5A880; }
+        .text-brand-dark { color: #111111; }
+        .text-brand-gray { color: #888888; }
+        .bg-brand-gold { background-color: #C5A880; }
+        .bg-brand-dark { background-color: #111111; }
+        .bg-brand-surface { background-color: #1A1A1A; }
+        .bg-brand-light { background-color: #F8F9FA; }
+        .border-brand-gold { border-color: #C5A880; }
+        .hover\:bg-brand-gold-hover:hover { background-color: #B0946B; }
+        .hover\:text-brand-gold:hover { color: #C5A880; }
     </style>
 </head>
 
-<body class="font-sans antialiased text-gray-800 bg-gray-50 flex flex-col min-h-screen">
+<body class="font-sans antialiased text-gray-800 bg-brand-light flex flex-col min-h-screen">
 
-    <header class="bg-white/90 backdrop-blur-md sticky top-0 z-50 border-b border-gray-100">
+    <header class="bg-white/95 backdrop-blur-md sticky top-0 z-50 border-b border-gray-100">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
-            <a href="{{ route('home') }}" class="text-2xl font-serif font-bold tracking-tight text-gray-900 relative z-50">
-                Ricardo Morais <span
-                    class="block text-xs font-sans font-light tracking-widest text-gray-500 uppercase mt-0.5">Arquitetura</span>
+            <a href="{{ route('home') }}" class="text-2xl font-serif font-bold tracking-wider text-gray-900 relative z-50">
+                RM<span class="text-brand-gold italic font-light">ARQ</span>
             </a>
 
             <!-- Desktop Menu -->
-            <nav class="hidden md:flex space-x-8">
+            <nav class="hidden md:flex space-x-8 items-center">
                 <a href="{{ route('home') }}"
-                    class="text-sm font-medium text-gray-600 hover:text-gray-900 transition border-b-2 hover:border-gray-900 pb-1 {{ request()->routeIs('home') ? 'border-gray-900' : ' border-transparent' }}">Início</a>
+                    class="text-xs uppercase tracking-[0.2em] font-medium text-gray-600 hover:text-brand-gold transition pb-1 {{ request()->routeIs('home') ? 'text-brand-gold' : '' }}">Início</a>
                 <a href="{{ route('about') }}"
-                    class="text-sm font-medium text-gray-600 hover:text-gray-900 transition border-b-2 hover:border-gray-900 pb-1 {{ request()->routeIs('about') ? 'border-gray-900' : ' border-transparent' }}">Sobre</a>
-                <a href="{{ route('services') }}"
-                    class="text-sm font-medium text-gray-600 hover:text-gray-900 transition border-b-2 hover:border-gray-900 pb-1 {{ request()->routeIs('services') ? 'border-gray-900' : ' border-transparent' }}">Serviços</a>
+                    class="text-xs uppercase tracking-[0.2em] font-medium text-gray-600 hover:text-brand-gold transition pb-1 {{ request()->routeIs('about') ? 'text-brand-gold' : '' }}">Sobre</a>
+                
+                <!-- Services Dropdown -->
+                <div class="relative" id="services-dropdown">
+                    <button id="services-dropdown-btn" class="text-xs uppercase tracking-[0.2em] font-medium text-gray-600 hover:text-brand-gold transition pb-1 flex items-center gap-1 {{ request()->routeIs('services') || request()->routeIs('residential-projects') || request()->routeIs('commercial-projects') || request()->routeIs('interior-design') || request()->routeIs('3d-design') ? 'text-brand-gold' : '' }}">
+                        Serviços
+                        <svg id="services-arrow" class="w-3 h-3 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                        </svg>
+                    </button>
+                    
+                    <!-- Dropdown Menu -->
+                    <div id="services-menu" class="absolute top-full left-0 mt-2 w-56 bg-white shadow-xl border border-gray-100 rounded-sm opacity-0 invisible transform -translate-y-2 transition-all duration-200 z-50">
+                        <div class="py-2">
+                            <a href="{{ route('services') }}" class="block px-5 py-3 text-xs uppercase tracking-[0.15em] text-gray-600 hover:bg-brand-light hover:text-brand-gold transition font-medium {{ request()->routeIs('services') ? 'text-brand-gold bg-brand-light' : '' }}">
+                                Todos os Serviços
+                            </a>
+                            <div class="h-px bg-gray-100 my-1"></div>
+                            <a href="{{ route('residential-projects') }}" class="block px-5 py-3 text-xs uppercase tracking-[0.15em] text-gray-600 hover:bg-brand-light hover:text-brand-gold transition font-medium {{ request()->routeIs('residential-projects') ? 'text-brand-gold bg-brand-light' : '' }}">
+                                Projetos Residenciais
+                            </a>
+                            <a href="{{ route('commercial-projects') }}" class="block px-5 py-3 text-xs uppercase tracking-[0.15em] text-gray-600 hover:bg-brand-light hover:text-brand-gold transition font-medium {{ request()->routeIs('commercial-projects') ? 'text-brand-gold bg-brand-light' : '' }}">
+                                Projetos Comerciais
+                            </a>
+                            <a href="{{ route('interior-design') }}" class="block px-5 py-3 text-xs uppercase tracking-[0.15em] text-gray-600 hover:bg-brand-light hover:text-brand-gold transition font-medium {{ request()->routeIs('interior-design') ? 'text-brand-gold bg-brand-light' : '' }}">
+                                Design de Interiores
+                            </a>
+                            <a href="{{ route('3d-design') }}" class="block px-5 py-3 text-xs uppercase tracking-[0.15em] text-gray-600 hover:bg-brand-light hover:text-brand-gold transition font-medium {{ request()->routeIs('3d-design') ? 'text-brand-gold bg-brand-light' : '' }}">
+                                Design 3D
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
                 <a href="{{ route('blog') }}"
-                    class="text-sm font-medium text-gray-600 hover:text-gray-900 transition border-b-2 hover:border-gray-900 pb-1 {{ request()->routeIs('blog') ? 'border-gray-900' : ' border-transparent' }}">Blog</a>
+                    class="text-xs uppercase tracking-[0.2em] font-medium text-gray-600 hover:text-brand-gold transition pb-1 {{ request()->routeIs('blog') ? 'text-brand-gold' : '' }}">Blog</a>
                 <a href="{{ route('contact') }}"
-                    class="text-sm font-medium text-gray-600 hover:text-gray-900 transition border-b-2 hover:border-gray-900 pb-1 {{ request()->routeIs('contact') ? 'border-gray-900' : ' border-transparent' }}">Contato</a>
+                    class="text-xs uppercase tracking-[0.2em] font-medium text-gray-600 hover:text-brand-gold transition pb-1 {{ request()->routeIs('contact') ? 'text-brand-gold' : '' }}">Contato</a>
+                <a href="{{ route('contact') }}" class="bg-brand-gold hover:bg-brand-gold-hover text-brand-dark px-6 py-3 text-xs uppercase tracking-widest font-semibold transition-all shadow-md hover:shadow-lg flex items-center gap-2 ml-4">
+                    <i data-lucide="calendar" class="w-4 h-4"></i>
+                    Agendar Reunião
+                </a>
             </nav>
 
             <!-- Mobile Menu Toggle Button -->
@@ -87,7 +180,26 @@
             <nav class="flex flex-col px-8 space-y-6">
                 <a href="{{ route('home') }}" class="text-3xl font-serif text-gray-900 transition hover:text-gray-500 py-1 border-b border-gray-100 inline-block w-full {{ request()->routeIs('home') ? 'font-bold' : '' }}">Início</a>
                 <a href="{{ route('about') }}" class="text-3xl font-serif text-gray-900 transition hover:text-gray-500 py-1 border-b border-gray-100 inline-block w-full {{ request()->routeIs('about') ? 'font-bold' : '' }}">Sobre</a>
-                <a href="{{ route('services') }}" class="text-3xl font-serif text-gray-900 transition hover:text-gray-500 py-1 border-b border-gray-100 inline-block w-full {{ request()->routeIs('services') ? 'font-bold' : '' }}">Serviços</a>
+                
+                <!-- Mobile Services Dropdown -->
+                <div class="border-b border-gray-100">
+                    <button id="mobile-services-btn" class="flex items-center justify-between w-full py-1">
+                        <span class="text-3xl font-serif text-gray-900 transition hover:text-gray-500 {{ request()->routeIs('services') || request()->routeIs('residential-projects') || request()->routeIs('commercial-projects') || request()->routeIs('interior-design') || request()->routeIs('3d-design') ? 'font-bold' : '' }}">Serviços</span>
+                        <svg id="mobile-services-arrow" class="w-5 h-5 text-gray-400 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                        </svg>
+                    </button>
+                    <div id="mobile-services-menu" class="overflow-hidden transition-all duration-300 ease-in-out" style="max-height: 0px;">
+                        <div class="pl-4 py-4 space-y-4">
+                            <a href="{{ route('services') }}" class="block text-lg text-gray-600 hover:text-brand-gold transition {{ request()->routeIs('services') ? 'text-brand-gold font-medium' : '' }}">Todos os Serviços</a>
+                            <a href="{{ route('residential-projects') }}" class="block text-lg text-gray-600 hover:text-brand-gold transition {{ request()->routeIs('residential-projects') ? 'text-brand-gold font-medium' : '' }}">Projetos Residenciais</a>
+                            <a href="{{ route('commercial-projects') }}" class="block text-lg text-gray-600 hover:text-brand-gold transition {{ request()->routeIs('commercial-projects') ? 'text-brand-gold font-medium' : '' }}">Projetos Comerciais</a>
+                            <a href="{{ route('interior-design') }}" class="block text-lg text-gray-600 hover:text-brand-gold transition {{ request()->routeIs('interior-design') ? 'text-brand-gold font-medium' : '' }}">Design de Interiores</a>
+                            <a href="{{ route('3d-design') }}" class="block text-lg text-gray-600 hover:text-brand-gold transition {{ request()->routeIs('3d-design') ? 'text-brand-gold font-medium' : '' }}">Design 3D</a>
+                        </div>
+                    </div>
+                </div>
+                
                 <a href="{{ route('blog') }}" class="text-3xl font-serif text-gray-900 transition hover:text-gray-500 py-1 border-b border-gray-100 inline-block w-full {{ request()->routeIs('blog') ? 'font-bold' : '' }}">Blog</a>
                 <a href="{{ route('contact') }}" class="text-3xl font-serif text-gray-900 transition hover:text-gray-500 py-1 border-b border-gray-100 inline-block w-full {{ request()->routeIs('contact') ? 'font-bold' : '' }}">Contato</a>
                 
@@ -104,37 +216,30 @@
         {{ $slot }}
     </main>
 
-    <footer class="bg-gray-900 text-white mt-16 py-12">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div>
-                <h3 class="text-xl font-serif font-bold mb-4">Ricardo Morais</h3>
-                <p class="text-gray-400 text-sm leading-relaxed">
-                    Transformando ideias em espaços sofisticados, funcionais e atemporais com excelência em cada
-                    detalhe.
-                </p>
+    <footer class="bg-brand-dark text-white py-12 border-t border-white/10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center">
+            <a href="{{ route('home') }}" class="text-2xl font-serif font-bold tracking-wider text-white mb-6 md:mb-0">
+                RM<span class="text-brand-gold italic font-light">ARQ</span>
+            </a>
+            
+            <div class="text-white/50 text-sm font-light flex flex-col items-center md:items-end">
+                <p>&copy; {{ date('Y') }} Ricardo Morais Arquitetura. Todos os direitos reservados.</p>
+                <p>Desenvolvido por <a href="https://sigowebsolutions.com.br" target="_blank" class="text-amber-300 underline">Sigo Web Solutions</a></p>
+                <div class="flex gap-4 mt-4">
+                    <a href="#" class="hover:text-brand-gold transition-colors"><i data-lucide="instagram" class="w-5 h-5"></i></a>
+                    <a href="#" class="hover:text-brand-gold transition-colors"><i data-lucide="linkedin" class="w-5 h-5"></i></a>
+                    <a href="mailto:contato@ricardomorais.arq.br" class="hover:text-brand-gold transition-colors"><i data-lucide="mail" class="w-5 h-5"></i></a>
+                </div>
             </div>
-            <div>
-                <h4 class="text-sm font-bold tracking-wider uppercase mb-4 text-gray-300">Contato</h4>
-                <p class="text-gray-400 text-sm mb-2">contato@ricardomorais.arq.br</p>
-                <p class="text-gray-400 text-sm">+55 (11) 99999-9999</p>
-            </div>
-            <div>
-                <h4 class="text-sm font-bold tracking-wider uppercase mb-4 text-gray-300">Links Rápidos</h4>
-                <ul class="space-y-2 text-sm text-gray-400">
-                    <li><a href="#" class="hover:text-white transition">Início</a></li>
-                    <li><a href="#" class="hover:text-white transition">Projetos</a></li>
-                    <li><a href="{{ route('login') }}" class="hover:text-white transition">Admin</a></li>
-                </ul>
-            </div>
-        </div>
-        <div
-            class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-12 pt-8 border-t border-gray-800 text-center text-sm text-gray-500">
-            &copy; {{ date('Y') }} Ricardo Morais Arquitetura. Todos os direitos reservados.
         </div>
     </footer>
 
     <script>
+        // Initialize Lucide Icons
+        lucide.createIcons();
+
         document.addEventListener('DOMContentLoaded', function () {
+            // Mobile Menu Toggle
             const mobileMenuButton = document.getElementById('mobile-menu-button');
             const mobileMenu = document.getElementById('mobile-menu');
             const iconMenu = document.getElementById('icon-menu');
@@ -170,6 +275,90 @@
                     iconClose.classList.replace('scale-100', 'scale-0');
                     iconClose.classList.replace('opacity-100', 'opacity-0');
                 }
+            });
+
+            // Desktop Services Dropdown
+            const servicesDropdown = document.getElementById('services-dropdown');
+            const servicesMenu = document.getElementById('services-menu');
+            const servicesArrow = document.getElementById('services-arrow');
+            let desktopDropdownOpen = false;
+
+            if (servicesDropdown && servicesMenu) {
+                // Mouse enter - open dropdown
+                servicesDropdown.addEventListener('mouseenter', () => {
+                    desktopDropdownOpen = true;
+                    servicesMenu.classList.remove('opacity-0', 'invisible', '-translate-y-2');
+                    servicesMenu.classList.add('opacity-100', 'visible', 'translate-y-0');
+                    servicesArrow.classList.add('rotate-180');
+                });
+
+                // Mouse leave - close dropdown
+                servicesDropdown.addEventListener('mouseleave', () => {
+                    desktopDropdownOpen = false;
+                    servicesMenu.classList.remove('opacity-100', 'visible', 'translate-y-0');
+                    servicesMenu.classList.add('opacity-0', 'invisible', '-translate-y-2');
+                    servicesArrow.classList.remove('rotate-180');
+                });
+
+                // Click toggle for touch devices
+                const servicesBtn = document.getElementById('services-dropdown-btn');
+                servicesBtn.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    desktopDropdownOpen = !desktopDropdownOpen;
+                    
+                    if (desktopDropdownOpen) {
+                        servicesMenu.classList.remove('opacity-0', 'invisible', '-translate-y-2');
+                        servicesMenu.classList.add('opacity-100', 'visible', 'translate-y-0');
+                        servicesArrow.classList.add('rotate-180');
+                    } else {
+                        servicesMenu.classList.remove('opacity-100', 'visible', 'translate-y-0');
+                        servicesMenu.classList.add('opacity-0', 'invisible', '-translate-y-2');
+                        servicesArrow.classList.remove('rotate-180');
+                    }
+                });
+
+                // Close dropdown when clicking outside
+                document.addEventListener('click', (e) => {
+                    if (!servicesDropdown.contains(e.target) && desktopDropdownOpen) {
+                        desktopDropdownOpen = false;
+                        servicesMenu.classList.remove('opacity-100', 'visible', 'translate-y-0');
+                        servicesMenu.classList.add('opacity-0', 'invisible', '-translate-y-2');
+                        servicesArrow.classList.remove('rotate-180');
+                    }
+                });
+            }
+
+            // Mobile Services Dropdown
+            const mobileServicesBtn = document.getElementById('mobile-services-btn');
+            const mobileServicesMenu = document.getElementById('mobile-services-menu');
+            const mobileServicesArrow = document.getElementById('mobile-services-arrow');
+            let mobileServicesOpen = false;
+
+            if (mobileServicesBtn && mobileServicesMenu) {
+                mobileServicesBtn.addEventListener('click', () => {
+                    mobileServicesOpen = !mobileServicesOpen;
+                    
+                    if (mobileServicesOpen) {
+                        mobileServicesMenu.style.maxHeight = mobileServicesMenu.scrollHeight + 'px';
+                        mobileServicesArrow.classList.add('rotate-180');
+                    } else {
+                        mobileServicesMenu.style.maxHeight = '0px';
+                        mobileServicesArrow.classList.remove('rotate-180');
+                    }
+                });
+            }
+
+            // Scroll Reveal Observer
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach((entry) => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('active');
+                    }
+                });
+            }, { threshold: 0.15 });
+            
+            document.querySelectorAll('.reveal').forEach((el) => {
+                observer.observe(el);
             });
         });
     </script>
