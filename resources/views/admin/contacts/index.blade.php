@@ -17,6 +17,8 @@
                 <tr>
                     <th class="px-6 py-4">Data</th>
                     <th class="px-6 py-4">Nome / Email</th>
+                    <th class="px-6 py-4">Telefone</th>
+                    <th class="px-6 py-4">Origem</th>
                     <th class="px-6 py-4">Status</th>
                     <th class="px-6 py-4 text-right">Ações</th>
                 </tr>
@@ -30,6 +32,14 @@
                         <td class="px-6 py-4">
                             <span class="block text-gray-900 font-medium">{{ $contact->name }}</span>
                             <span class="block text-xs text-gray-500 mt-0.5">{{ $contact->email }}</span>
+                        </td>
+                        <td class="px-6 py-4 text-gray-900">
+                            {{ $contact->phone ?? '-' }}
+                        </td>
+                        <td class="px-6 py-4">
+                            <span class="px-2.5 py-1 bg-gray-100 text-gray-700 rounded-full text-xs font-medium">
+                                {{ $contact->origin ?? 'Web' }}
+                            </span>
                         </td>
                         <td class="px-6 py-4">
                             @if(is_null($contact->read_at))
@@ -49,7 +59,7 @@
                     </tr>
                 @empty
                     <tr>
-                        <td colspan="4" class="px-6 py-8 text-center text-gray-500">
+                        <td colspan="6" class="px-6 py-8 text-center text-gray-500">
                             Nenhuma mensagem recebida ainda.
                         </td>
                     </tr>

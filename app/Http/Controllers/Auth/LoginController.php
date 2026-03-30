@@ -13,6 +13,9 @@ class LoginController extends Controller
      */
     public function create()
     {
+        if (Auth::check()) {
+            return redirect()->intended('admin/dashboard');
+        }
         return view('auth.login');
     }
 

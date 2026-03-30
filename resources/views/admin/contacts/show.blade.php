@@ -24,6 +24,14 @@
                 <span class="block text-gray-900">{{ $contact->phone ?? '-' }}</span>
             </div>
             <div>
+                <span class="block text-xs font-medium uppercase tracking-wider text-gray-500 mb-1">Complemento</span>
+                <span class="block text-gray-900">{{ $contact->complement ?? '-' }}</span>
+            </div>
+            <div>
+                <span class="block text-xs font-medium uppercase tracking-wider text-gray-500 mb-1">Origem</span>
+                <span class="block text-gray-900">{{ $contact->origin ?? '-' }}</span>
+            </div>
+            <div>
                 <span class="block text-xs font-medium uppercase tracking-wider text-gray-500 mb-1">Data de Envio</span>
                 <span class="block text-gray-900">{{ $contact->created_at->format('d/m/Y às H:i') }}</span>
             </div>

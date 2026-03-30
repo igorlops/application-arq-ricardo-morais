@@ -10,7 +10,9 @@ class Contact extends Model
         'name',
         'email',
         'phone',
+        'complement',
         'message',
+        'origin',
         'read_at',
     ];
 
