@@ -4,7 +4,7 @@
     <section class="relative h-screen flex flex-col items-center justify-center overflow-hidden bg-gray-900">
         <div class="absolute inset-0 z-0">
             <!-- Using a sophisticated placeholder hero image from unsplash -->
-            <img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80" alt="Arquitetura Moderna" class="w-full h-full object-cover opacity-50 filter grayscale transition duration-1000 hover:grayscale-0">
+            <img src="{{ asset('images/garagem-reformas-fortaleza.jpeg') }}" alt="Arquitetura Moderna" class="w-full h-full object-cover opacity-50 filter grayscale transition duration-1000 hover:grayscale-0">
         </div>
         
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full relative z-10">
@@ -38,7 +38,7 @@
             <div class="grid grid-cols-1 md:grid-cols-2 gap-16 items-center ">
                 <div class="reveal delay-200 relative img-zoom-hover">
                     <div class="absolute -inset-4 border-2 border-brand-gold/30 z-0 hidden md:block"></div>
-                    <img src="https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Interior Design" class="relative z-10 w-full h-auto shadow-2xl">
+                    <img src="{{ asset('images/projeto-arquitetura-ricardo-morais.jpeg') }}" alt="Interior Design" class="relative z-10 w-full h-auto shadow-2xl">
                 </div>
                 <div class="reveal">
                     <div class="flex items-center gap-4 mb-6">
@@ -197,7 +197,7 @@
                 <!-- Project 1 -->
                 <div class="reveal delay-100 group cursor-pointer relative overflow-hidden">
                     <div class="overflow-hidden mb-0">
-                        <img src="https://images.unsplash.com/photo-1628012198051-50e8d02fa7fb?auto=format&fit=crop&w=800&q=80" alt="Residência Aurora" class="w-full h-96 md:h-[30rem] object-cover transition duration-1000 group-hover:scale-110 filter grayscale group-hover:grayscale-0">
+                        <img src="{{ asset('images/projeto-arquitetura-fortaleza.jpeg') }}" alt="Residência Aurora" class="w-full h-96 md:h-[30rem] object-cover transition duration-1000 group-hover:scale-110 filter grayscale group-hover:grayscale-0">
                     </div>
                     <div class="absolute inset-0 bg-gradient-to-t from-brand-dark via-transparent to-transparent opacity-80"></div>
                     <div class="absolute bottom-0 left-0 p-8 transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
@@ -210,7 +210,7 @@
                 <!-- Project 2 -->
                 <div class="reveal delay-200 group cursor-pointer relative overflow-hidden md:mt-24">
                     <div class="overflow-hidden mb-0">
-                        <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=800&q=80" alt="Edifício Horizon" class="w-full h-96 md:h-[30rem] object-cover transition duration-1000 group-hover:scale-110 filter grayscale group-hover:grayscale-0">
+                        <img src="{{ asset('images/launge-arquiteto-fortaleza.jpeg') }}" alt="Edifício Horizon" class="w-full h-96 md:h-[30rem] object-cover transition duration-1000 group-hover:scale-110 filter grayscale group-hover:grayscale-0">
                     </div>
                     <div class="absolute inset-0 bg-gradient-to-t from-brand-dark via-transparent to-transparent opacity-80"></div>
                     <div class="absolute bottom-0 left-0 p-8 transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
@@ -273,7 +273,7 @@
     <!-- Call to Action -->
     <section class="py-32 bg-brand-dark relative overflow-hidden">
         <div class="absolute inset-0 opacity-20">
-            <img src="https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?q=80&w=2070&auto=format&fit=crop" alt="Background" class="w-full h-full object-cover">
+            <img src="{{ asset('images/garagem-arquiteto-fortaleza.jpeg') }}" alt="Background" class="w-full h-full object-cover">
         </div>
         <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10 reveal">
             <i data-lucide="compass" class="w-16 h-16 text-brand-gold mx-auto mb-8"></i>

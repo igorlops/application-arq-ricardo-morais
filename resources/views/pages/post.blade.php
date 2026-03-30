@@ -6,7 +6,7 @@
             @if($post->featured_image)
                 <img src="{{ asset('storage/' . $post->featured_image) }}" alt="{{ $post->title }}" class="w-full h-full object-cover opacity-30 filter grayscale">
             @else
-                <img src="https://images.unsplash.com/photo-1497366811353-6870744d04b2?auto=format&fit=crop&w=2000&q=80" alt="Blog" class="w-full h-full object-cover opacity-20 filter grayscale">
+                <img src="{{ asset('images/arquitetura-fortaleza-ricardo-morais.jpeg') }}" alt="Blog" class="w-full h-full object-cover opacity-20 filter grayscale">
             @endif
             <div class="absolute inset-0 bg-gradient-to-b from-brand-dark/50 via-brand-dark/80 to-brand-dark"></div>
         </div>
@@ -115,7 +115,7 @@
     <!-- Newsletter CTA -->
     <section class="py-24 bg-brand-dark relative overflow-hidden">
         <div class="absolute inset-0 opacity-10">
-            <img src="https://images.unsplash.com/photo-1497366811353-6870744d04b2?auto=format&fit=crop&w=2000&q=80" alt="Background" class="w-full h-full object-cover">
+            <img src="{{ asset('images/arquitetura-ricardo-morais.jpeg') }}" alt="Background" class="w-full h-full object-cover">
         </div>
         <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10 reveal">
             <i data-lucide="mail" class="w-12 h-12 text-brand-gold mx-auto mb-6"></i>

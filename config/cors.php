@@ -5,7 +5,7 @@ return [
 
     'allowed_methods' => ['*'],
 
-    'allowed_origins' => ['lp-reformas.vitrinesigo.shop', 'https://lp-reformas.vitrinesigo.shop','https://lp-challe.vitrinesigo.shop', 'https://*.vitrinesigo.shop'],
+    'allowed_origins' => ['https://lp-reformas.vitrinesigo.shop','https://lp-challe.vitrinesigo.shop', 'https://*.vitrinesigo.shop'],
 
     'allowed_origins_patterns' => [],
 

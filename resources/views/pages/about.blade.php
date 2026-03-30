@@ -3,7 +3,7 @@
     <!-- Hero Section -->
     <section class="relative py-32 md:py-48 bg-brand-dark overflow-hidden">
         <div class="absolute inset-0 z-0">
-            <img src="https://images.unsplash.com/photo-1574958269340-fa927503f3dd?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Ricardo Morais" class="w-full h-full object-cover opacity-30 filter grayscale">
+            <img src="{{ asset('images/garagem-arquitetura.jpeg') }}" alt="Ricardo Morais" class="w-full h-full object-cover opacity-30 filter grayscale">
             <div class="absolute inset-0 bg-gradient-to-b from-brand-dark/50 via-brand-dark/80 to-brand-dark"></div>
         </div>
         <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
@@ -132,7 +132,7 @@
     <!-- Call to Action -->
     <section class="py-32 bg-brand-dark relative overflow-hidden">
         <div class="absolute inset-0 opacity-20">
-            <img src="https://images.unsplash.com/photo-1600607686527-6fb886090705?q=80&w=2070&auto=format&fit=crop" alt="Background" class="w-full h-full object-cover">
+            <img src="{{ asset('images/arquitetura-ricardo-morais.jpeg') }}" alt="Background" class="w-full h-full object-cover">
         </div>
         <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10 reveal">
             <i data-lucide="users" class="w-16 h-16 text-brand-gold mx-auto mb-8"></i>

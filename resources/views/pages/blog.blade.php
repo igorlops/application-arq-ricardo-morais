@@ -3,7 +3,7 @@
     <!-- Hero Section -->
     <section class="relative py-32 md:py-40 bg-brand-dark overflow-hidden">
         <div class="absolute inset-0 z-0">
-            <img src="https://images.unsplash.com/photo-1497366811353-6870744d04b2?auto=format&fit=crop&w=2000&q=80" alt="Blog" class="w-full h-full object-cover opacity-20 filter grayscale">
+            <img src="{{ asset('images/arquitetura-fortaleza-ricardo-morais.jpeg') }}" alt="Blog" class="w-full h-full object-cover opacity-20 filter grayscale">
             <div class="absolute inset-0 bg-gradient-to-b from-brand-dark/50 via-brand-dark/80 to-brand-dark"></div>
         </div>
         <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10 pt-10">

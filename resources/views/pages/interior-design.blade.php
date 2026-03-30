@@ -3,7 +3,7 @@
     <!-- Hero Section -->
     <section class="relative py-32 md:py-48 bg-brand-dark overflow-hidden">
         <div class="absolute inset-0 z-0">
-            <img src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80" alt="Design de Interiores" class="w-full h-full object-cover opacity-30 filter grayscale">
+            <img src="{{ asset('images/sala-jantar-arquiteto-ricardo-morais.jpeg') }}" alt="Design de Interiores" class="w-full h-full object-cover opacity-30 filter grayscale">
             <div class="absolute inset-0 bg-gradient-to-b from-brand-dark/50 via-brand-dark/80 to-brand-dark"></div>
         </div>
         <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
@@ -39,7 +39,7 @@
                 </div>
                 <div class="reveal delay-200 img-zoom-hover relative">
                     <div class="absolute -inset-4 border-2 border-brand-gold/30 z-0 hidden md:block"></div>
-                    <img src="https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Interior Sofisticado" class="w-full h-[500px] object-cover shadow-2xl filter grayscale contrast-125 relative z-10">
+                    <img src="{{ asset('images/projeto-cozinha-arquiteto-ricardo-morais.jpeg') }}" alt="Interior Sofisticado" class="w-full h-[500px] object-cover shadow-2xl filter grayscale contrast-125 relative z-10">
                 </div>
             </div>
 
@@ -76,7 +76,7 @@
                 </div>
                 <div class="reveal delay-200 order-1 md:order-2 img-zoom-hover relative">
                     <div class="absolute -inset-4 border-2 border-brand-gold/30 z-0 hidden md:block"></div>
-                    <img src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Detalhes Interiores" class="w-full h-[500px] object-cover shadow-2xl filter grayscale contrast-125 relative z-10">
+                    <img src="{{ asset('images/quarto-arquiteto-ricardo-morais.jpeg') }}" alt="Detalhes Interiores" class="w-full h-[500px] object-cover shadow-2xl filter grayscale contrast-125 relative z-10">
                 </div>
             </div>
         </div>
@@ -123,7 +123,7 @@
     <!-- Call to Action -->
     <section class="py-32 bg-brand-dark relative overflow-hidden">
         <div class="absolute inset-0 opacity-20">
-            <img src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80" alt="Background" class="w-full h-full object-cover">
+            <img src="{{ asset('images/sala-jantar-arquiteto-ricardo-morais.jpeg') }}" alt="Background" class="w-full h-full object-cover">
         </div>
         <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10 reveal">
             <i data-lucide="sparkles" class="w-16 h-16 text-brand-gold mx-auto mb-8"></i>

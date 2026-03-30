@@ -3,7 +3,7 @@
     <!-- Hero Section -->
     <section class="relative py-32 md:py-40 bg-brand-dark overflow-hidden">
         <div class="absolute inset-0 z-0">
-            <img src="https://images.unsplash.com/photo-1600607688969-a5bfcd646154?q=80&w=2070&auto=format&fit=crop" alt="Contato" class="w-full h-full object-cover opacity-20 filter grayscale">
+            <img src="{{ asset('images/reforma-fortaleza-arquiteto.jpeg') }}" alt="Contato" class="w-full h-full object-cover opacity-20 filter grayscale">
             <div class="absolute inset-0 bg-gradient-to-b from-brand-dark/50 via-brand-dark/80 to-brand-dark"></div>
         </div>
         <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
@@ -212,7 +212,7 @@
     <!-- CTA Section -->
     <section class="py-32 bg-brand-dark relative overflow-hidden">
         <div class="absolute inset-0 opacity-20">
-            <img src="https://images.unsplash.com/photo-1600607686527-6fb886090705?q=80&w=2070&auto=format&fit=crop" alt="Background" class="w-full h-full object-cover">
+            <img src="{{ asset('images/arquitetura-ricardo-morais.jpeg') }}" alt="Background" class="w-full h-full object-cover">
         </div>
         <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10 reveal">
             <i data-lucide="compass" class="w-16 h-16 text-brand-gold mx-auto mb-8"></i>
