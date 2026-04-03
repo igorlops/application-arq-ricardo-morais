@@ -39,9 +39,9 @@
     @endif
 
     <!-- Content -->
-    <article class="py-24 bg-white">
+    <article class="py-24 bg-theme-secondary">
         <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 reveal delay-100">
-            <div class="prose prose-lg prose-headings:font-serif prose-headings:font-bold prose-headings:text-brand-dark prose-p:font-light prose-p:text-brand-gray prose-p:leading-relaxed prose-a:text-brand-gold prose-a:no-underline hover:prose-a:underline prose-img:border prose-img:border-gray-100 prose-blockquote:border-l-4 prose-blockquote:border-brand-gold prose-blockquote:bg-brand-light prose-blockquote:py-2 prose-blockquote:px-6 prose-blockquote:not-italic prose-strong:text-brand-dark">
+            <div class="prose prose-lg prose-headings:font-serif prose-headings:font-bold prose-headings:text-theme-primary prose-p:font-light prose-p:text-theme-secondary prose-p:leading-relaxed prose-a:text-brand-gold prose-a:no-underline hover:prose-a:underline prose-img:border prose-img:border-gray-100 prose-blockquote:border-l-4 prose-blockquote:border-brand-gold prose-blockquote:bg-brand-light prose-blockquote:py-2 prose-blockquote:px-6 prose-blockquote:not-italic prose-strong:text-theme-primary">
                 {!! nl2br(e($post->content)) !!}
             </div>
 
@@ -49,20 +49,20 @@
             <div class="mt-16 pt-10 border-t border-gray-100">
                 <div class="flex flex-col md:flex-row justify-between items-center gap-6">
                     <div class="flex items-center gap-4">
-                        <span class="text-xs uppercase tracking-widest text-brand-gray font-semibold">Compartilhar:</span>
+                        <span class="text-xs uppercase tracking-widest text-theme-secondary font-semibold">Compartilhar:</span>
                         <div class="flex gap-3">
-                            <a href="#" class="w-10 h-10 bg-brand-light flex items-center justify-center text-brand-dark hover:bg-brand-gold hover:text-brand-dark transition-colors">
+                            <a href="#" class="w-10 h-10 bg-brand-light flex items-center justify-center text-theme-primary hover:bg-brand-gold hover:text-theme-primary transition-colors">
                                 <i data-lucide="facebook" class="w-4 h-4"></i>
                             </a>
-                            <a href="#" class="w-10 h-10 bg-brand-light flex items-center justify-center text-brand-dark hover:bg-brand-gold hover:text-brand-dark transition-colors">
+                            <a href="#" class="w-10 h-10 bg-brand-light flex items-center justify-center text-theme-primary hover:bg-brand-gold hover:text-theme-primary transition-colors">
                                 <i data-lucide="twitter" class="w-4 h-4"></i>
                             </a>
-                            <a href="#" class="w-10 h-10 bg-brand-light flex items-center justify-center text-brand-dark hover:bg-brand-gold hover:text-brand-dark transition-colors">
+                            <a href="#" class="w-10 h-10 bg-brand-light flex items-center justify-center text-theme-primary hover:bg-brand-gold hover:text-theme-primary transition-colors">
                                 <i data-lucide="linkedin" class="w-4 h-4"></i>
                             </a>
                         </div>
                     </div>
-                    <a href="{{ route('blog') }}" class="inline-flex items-center text-sm font-bold uppercase tracking-widest text-brand-dark hover:text-brand-gold transition border-b-2 border-brand-gold pb-1">
+                    <a href="{{ route('blog') }}" class="inline-flex items-center text-sm font-bold uppercase tracking-widest text-theme-primary hover:text-brand-gold transition border-b-2 border-brand-gold pb-1">
                         <i data-lucide="arrow-left" class="w-4 h-4 mr-2"></i>
                         Voltar para o Jornal
                     </a>
@@ -80,12 +80,12 @@
                     <p class="text-brand-gold uppercase tracking-[0.2em] text-xs font-semibold">Continue Lendo</p>
                     <div class="h-px w-8 bg-brand-gold"></div>
                 </div>
-                <h2 class="text-3xl font-serif text-brand-dark">Mais Artigos</h2>
+                <h2 class="text-3xl font-serif text-theme-primary">Mais Artigos</h2>
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
                 @foreach(\App\Models\Post::where('id', '!=', $post->id)->where('is_published', true)->latest()->take(3)->get() as $relatedPost)
-                    <article class="reveal bg-white group relative hover:shadow-xl transition-all duration-500 border border-gray-100 overflow-hidden">
+                    <article class="reveal bg-theme-secondary group relative hover:shadow-xl transition-all duration-500 border border-gray-100 overflow-hidden">
                         <a href="{{ route('blog.post', $relatedPost->slug) }}" class="absolute inset-0 z-10"></a>
                         
                         <div class="overflow-hidden img-zoom-hover">
@@ -93,7 +93,7 @@
                                 <img src="{{ asset('storage/' . $relatedPost->featured_image) }}" alt="{{ $relatedPost->title }}" class="w-full h-48 object-cover filter grayscale group-hover:grayscale-0 transition duration-700">
                             @else
                                 <div class="w-full h-48 bg-brand-light flex items-center justify-center">
-                                    <span class="text-brand-gray font-serif italic text-sm">Sem Imagem</span>
+                                    <span class="text-theme-secondary font-serif italic text-sm">Sem Imagem</span>
                                 </div>
                             @endif
                         </div>
@@ -102,7 +102,7 @@
                             <div class="text-xs uppercase tracking-widest text-brand-gold mb-2 block font-semibold">
                                 {{ $relatedPost->published_at->format('M d, Y') }}
                             </div>
-                            <h3 class="text-lg font-serif font-bold text-brand-dark group-hover:text-brand-gold transition leading-tight">
+                            <h3 class="text-lg font-serif font-bold text-theme-primary group-hover:text-brand-gold transition leading-tight">
                                 {{ $relatedPost->title }}
                             </h3>
                         </div>
@@ -124,8 +124,8 @@
                 Inscreva-se para receber os últimos artigos, inspirações e novidades do mundo da arquitetura.
             </p>
             <form class="max-w-md mx-auto flex flex-col sm:flex-row gap-4">
-                <input type="email" placeholder="Seu e-mail" class="flex-1 bg-white/10 border border-white/20 text-white px-6 py-3 outline-none focus:border-brand-gold transition-colors placeholder-white/40">
-                <button type="submit" class="bg-brand-gold hover:bg-white text-brand-dark uppercase tracking-widest text-xs font-bold px-8 py-3 transition-all">
+                <input type="email" placeholder="Seu e-mail" class="flex-1 bg-theme-secondary/10 border border-white/20 text-white px-6 py-3 outline-none focus:border-brand-gold transition-colors placeholder-white/40">
+                <button type="submit" class="bg-brand-gold hover:bg-theme-secondary text-theme-primary uppercase tracking-widest text-xs font-bold px-8 py-3 transition-all">
                     Assinar
                 </button>
             </form>

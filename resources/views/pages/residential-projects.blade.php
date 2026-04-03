@@ -20,7 +20,7 @@
     </section>
 
     <!-- Project Features -->
-    <section class="py-24 bg-white">
+    <section class="py-24 bg-theme-secondary">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="grid grid-cols-1 md:grid-cols-2 gap-16 items-center mb-32">
                 <div class="reveal">
@@ -28,12 +28,12 @@
                         <div class="h-px w-16 bg-brand-gold"></div>
                         <p class="text-brand-gold uppercase tracking-[0.2em] text-xs font-semibold">Nossa Abordagem</p>
                     </div>
-                    <h2 class="text-3xl md:text-5xl font-serif text-brand-dark mb-6">Arquitetura que Habita</h2>
+                    <h2 class="text-3xl md:text-5xl font-serif text-theme-primary mb-6">Arquitetura que Habita</h2>
                     <div class="w-16 h-px bg-brand-gold mb-6"></div>
-                    <p class="text-brand-gray font-light leading-relaxed text-lg mb-6">
+                    <p class="text-theme-secondary font-light leading-relaxed text-lg mb-6">
                         Cada residência é única, desenvolvida a partir de uma profunda compreensão do terreno, da luz natural e das aspirações dos moradores. Nossos projetos equilibram estética contemporânea com funcionalidade atemporal.
                     </p>
-                    <p class="text-brand-gray font-light leading-relaxed text-lg">
+                    <p class="text-theme-secondary font-light leading-relaxed text-lg">
                         Do conceito à entrega das chaves, acompanhamos cada detalhe para garantir que sua casa seja uma extensão autêntica do seu estilo de vida.
                     </p>
                 </div>
@@ -49,26 +49,26 @@
                         <div class="h-px w-16 bg-brand-gold"></div>
                         <p class="text-brand-gold uppercase tracking-[0.2em] text-xs font-semibold">Características</p>
                     </div>
-                    <h2 class="text-3xl md:text-5xl font-serif text-brand-dark mb-6">Espaços de Viver</h2>
+                    <h2 class="text-3xl md:text-5xl font-serif text-theme-primary mb-6">Espaços de Viver</h2>
                     <div class="w-16 h-px bg-brand-gold mb-6"></div>
                     <ul class="space-y-4">
-                        <li class="flex items-center gap-3 text-brand-gray uppercase tracking-wide">
+                        <li class="flex items-center gap-3 text-theme-secondary uppercase tracking-wide">
                             <i data-lucide="check" class="text-brand-gold w-5 h-5"></i>
                             Arquitetura Minimalista
                         </li>
-                        <li class="flex items-center gap-3 text-brand-gray uppercase tracking-wide">
+                        <li class="flex items-center gap-3 text-theme-secondary uppercase tracking-wide">
                             <i data-lucide="check" class="text-brand-gold w-5 h-5"></i>
                             Sustentabilidade Integrada
                         </li>
-                        <li class="flex items-center gap-3 text-brand-gray uppercase tracking-wide">
+                        <li class="flex items-center gap-3 text-theme-secondary uppercase tracking-wide">
                             <i data-lucide="check" class="text-brand-gold w-5 h-5"></i>
                             Integração Paisagística
                         </li>
-                        <li class="flex items-center gap-3 text-brand-gray uppercase tracking-wide">
+                        <li class="flex items-center gap-3 text-theme-secondary uppercase tracking-wide">
                             <i data-lucide="check" class="text-brand-gold w-5 h-5"></i>
                             Eficiência Energética
                         </li>
-                        <li class="flex items-center gap-3 text-brand-gray uppercase tracking-wide">
+                        <li class="flex items-center gap-3 text-theme-secondary uppercase tracking-wide">
                             <i data-lucide="check" class="text-brand-gold w-5 h-5"></i>
                             Materiais Nobres
                         </li>
@@ -83,7 +83,7 @@
     </section>
 
     <!-- Process -->
-    <section class="py-24 bg-brand-light">
+    <section class="py-24 bg-theme-primary">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center max-w-3xl mx-auto mb-16 reveal">
                 <div class="flex items-center justify-center gap-4 mb-6">
@@ -91,30 +91,30 @@
                     <p class="text-brand-gold uppercase tracking-[0.2em] text-xs font-semibold">Metodologia</p>
                     <div class="h-px w-8 bg-brand-gold"></div>
                 </div>
-                <h2 class="text-3xl md:text-5xl font-serif text-brand-dark mb-6">Como Trabalhamos</h2>
+                <h2 class="text-3xl md:text-5xl font-serif text-theme-primary mb-6">Como Trabalhamos</h2>
             </div>
             
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <div class="reveal delay-100 bg-white p-10 border border-gray-100 shadow-sm hover:shadow-xl transition-all duration-500 text-center group">
-                    <div class="w-16 h-16 bg-brand-dark text-brand-gold flex items-center justify-center mx-auto mb-6 rounded-sm group-hover:bg-brand-gold group-hover:text-brand-dark transition-colors">
+                <div class="reveal delay-100 bg-theme-secondary p-10 border border-theme shadow-sm hover:shadow-xl transition-all duration-500 text-center group">
+                    <div class="w-16 h-16 bg-theme-primary text-brand-gold flex items-center justify-center mx-auto mb-6 rounded-sm group-hover:bg-brand-gold group-hover:text-theme-primary transition-colors">
                         <span class="text-2xl font-serif">01</span>
                     </div>
-                    <h3 class="text-lg font-serif font-bold text-brand-dark mb-2">Briefing Residencial</h3>
-                    <p class="text-brand-gray text-sm font-light">Entendimento profundo do terreno, do estilo de vida e das aspirações dos moradores.</p>
+                    <h3 class="text-lg font-serif font-bold text-theme-primary mb-2">Briefing Residencial</h3>
+                    <p class="text-theme-secondary text-sm font-light">Entendimento profundo do terreno, do estilo de vida e das aspirações dos moradores.</p>
                 </div>
-                <div class="reveal delay-200 bg-white p-10 border border-gray-100 shadow-sm hover:shadow-xl transition-all duration-500 text-center group">
-                    <div class="w-16 h-16 bg-brand-dark text-brand-gold flex items-center justify-center mx-auto mb-6 rounded-sm group-hover:bg-brand-gold group-hover:text-brand-dark transition-colors">
+                <div class="reveal delay-200 bg-theme-secondary p-10 border border-theme shadow-sm hover:shadow-xl transition-all duration-500 text-center group">
+                    <div class="w-16 h-16 bg-theme-primary text-brand-gold flex items-center justify-center mx-auto mb-6 rounded-sm group-hover:bg-brand-gold group-hover:text-theme-primary transition-colors">
                         <span class="text-2xl font-serif">02</span>
                     </div>
-                    <h3 class="text-lg font-serif font-bold text-brand-dark mb-2">Projeto Executivo</h3>
-                    <p class="text-brand-gray text-sm font-light">Desenvolvimento detalhado com plantas, cortes e especificações técnicas.</p>
+                    <h3 class="text-lg font-serif font-bold text-theme-primary mb-2">Projeto Executivo</h3>
+                    <p class="text-theme-secondary text-sm font-light">Desenvolvimento detalhado com plantas, cortes e especificações técnicas.</p>
                 </div>
-                <div class="reveal delay-300 bg-white p-10 border border-gray-100 shadow-sm hover:shadow-xl transition-all duration-500 text-center group">
-                    <div class="w-16 h-16 bg-brand-dark text-brand-gold flex items-center justify-center mx-auto mb-6 rounded-sm group-hover:bg-brand-gold group-hover:text-brand-dark transition-colors">
+                <div class="reveal delay-300 bg-theme-secondary p-10 border border-theme shadow-sm hover:shadow-xl transition-all duration-500 text-center group">
+                    <div class="w-16 h-16 bg-theme-primary text-brand-gold flex items-center justify-center mx-auto mb-6 rounded-sm group-hover:bg-brand-gold group-hover:text-theme-primary transition-colors">
                         <span class="text-2xl font-serif">03</span>
                     </div>
-                    <h3 class="text-lg font-serif font-bold text-brand-dark mb-2">Acompanhamento</h3>
-                    <p class="text-brand-gray text-sm font-light">Suporte completo durante a execução da obra até a entrega das chaves.</p>
+                    <h3 class="text-lg font-serif font-bold text-theme-primary mb-2">Acompanhamento</h3>
+                    <p class="text-theme-secondary text-sm font-light">Suporte completo durante a execução da obra até a entrega das chaves.</p>
                 </div>
             </div>
         </div>
@@ -131,7 +131,7 @@
             <p class="text-xl text-white/90 font-light mb-12 max-w-2xl mx-auto">
                 Vamos conversar sobre sua visão. Nossa equipe está pronta para transformar seu espaço em uma residência extraordinária.
             </p>
-            <a href="{{ route('contact') }}" class="inline-block bg-brand-gold hover:bg-white text-brand-dark uppercase tracking-widest text-sm font-bold px-10 py-5 transition-all shadow-lg hover:shadow-xl">
+            <a href="{{ route('contact') }}" class="inline-block bg-brand-gold hover:bg-theme-secondary text-theme-primary uppercase tracking-widest text-sm font-bold px-10 py-5 transition-all shadow-lg hover:shadow-xl">
                 Iniciar Meu Projeto
             </a>
         </div>

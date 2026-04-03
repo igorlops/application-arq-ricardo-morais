@@ -33,7 +33,7 @@
     </section>
 
     <!-- Brief About Snippet -->
-    <section class="py-24 bg-white">
+    <section class="py-24 bg-theme-secondary transition-colors duration-300">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="grid grid-cols-1 md:grid-cols-2 gap-16 items-center ">
                 <div class="reveal delay-200 relative img-zoom-hover">
@@ -45,15 +45,15 @@
                         <div class="h-px w-8 bg-brand-gold"></div>
                         <p class="text-brand-gold uppercase tracking-[0.2em] text-xs font-semibold">Sobre o Estúdio</p>
                     </div>
-                    <h2 class="text-3xl md:text-5xl font-serif text-brand-dark mb-6 leading-tight">Filosofia de Design</h2>
+                    <h2 class="text-3xl md:text-5xl font-serif text-theme-primary mb-6 leading-tight">Filosofia de Design</h2>
                     <div class="w-16 h-px bg-brand-gold mb-6"></div>
-                    <p class="text-brand-gray font-light leading-relaxed mb-6 text-lg">
+                    <p class="text-theme-secondary font-light leading-relaxed mb-6 text-lg">
                         Cada projeto é uma narrativa única. Acreditamos que a arquitetura não é apenas sobre construir espaços, mas sobre materializar sonhos e propósitos em formas tangíveis.
                     </p>
-                    <p class="text-brand-gray font-light leading-relaxed mb-8">
+                    <p class="text-theme-secondary font-light leading-relaxed mb-8">
                         Liderado por Ricardo Morais, nosso estúdio foca em soluções minimalistas, elegância duradoura e integração harmoniosa com o ambiente.
                     </p>
-                    <a href="{{ route('about') }}" class="inline-flex items-center gap-2 border-b-2 border-brand-gold text-brand-dark uppercase tracking-widest text-sm font-semibold pb-1 hover:text-brand-gold transition-colors">
+                    <a href="{{ route('about') }}" class="inline-flex items-center gap-2 border-b-2 border-brand-gold text-theme-primary uppercase tracking-widest text-sm font-semibold pb-1 hover:text-brand-gold transition-colors">
                         Ler Mais Sobre Nós
                         <i data-lucide="arrow-right" class="w-4 h-4"></i>
                     </a>
@@ -64,7 +64,7 @@
     </section>
 
     <!-- Featured Services -->
-    <section class="py-24 bg-brand-light border-t border-gray-100">
+    <section class="py-24 bg-theme-primary border-t border-theme transition-colors duration-300">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center max-w-3xl mx-auto mb-16 reveal">
                 <div class="flex items-center justify-center gap-4 mb-6">
@@ -72,58 +72,58 @@
                     <p class="text-brand-gold uppercase tracking-[0.2em] text-xs font-semibold">Especialidades</p>
                     <div class="h-px w-8 bg-brand-gold"></div>
                 </div>
-                <h2 class="text-3xl md:text-5xl font-serif text-brand-dark mb-6">Áreas de Atuação</h2>
+                <h2 class="text-3xl md:text-5xl font-serif text-theme-primary mb-6">Áreas de Atuação</h2>
             </div>
             
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-left">
                 <!-- Service 1 -->
-                <div class="reveal delay-100 bg-white p-10 border border-gray-100 hover:shadow-2xl transition-all duration-500 group relative overflow-hidden">
+                <div class="reveal delay-100 bg-theme-secondary p-10 border border-theme hover:shadow-2xl transition-all duration-500 group relative overflow-hidden">
                     <div class="absolute top-0 left-0 w-full h-1 bg-brand-gold transform scale-x-0 group-hover:scale-x-100 transition-transform origin-left duration-500"></div>
                     <div class="w-14 h-14 bg-brand-dark text-brand-gold flex items-center justify-center mb-8 rounded-sm">
                         <i data-lucide="home" class="w-6 h-6"></i>
                     </div>
-                    <h3 class="text-xl font-serif font-semibold mb-4 text-brand-dark">Projetos Residenciais</h3>
-                    <p class="text-brand-gray font-light leading-relaxed mb-8">Desenvolvemos residências de alto padrão que refletem o estilo de vida contemporâneo com máximo conforto.</p>
-                    <a href="{{ route('residential-projects') }}" class="inline-flex items-center gap-2 text-brand-dark uppercase tracking-widest text-xs font-semibold hover:text-brand-gold transition-colors">
+                    <h3 class="text-xl font-serif font-semibold mb-4 text-theme-primary">Projetos Residenciais</h3>
+                    <p class="text-theme-secondary font-light leading-relaxed mb-8">Desenvolvemos residências de alto padrão que refletem o estilo de vida contemporâneo com máximo conforto.</p>
+                    <a href="{{ route('residential-projects') }}" class="inline-flex items-center gap-2 text-theme-primary uppercase tracking-widest text-xs font-semibold hover:text-brand-gold transition-colors">
                         Saiba Mais <i data-lucide="arrow-right" class="w-4 h-4"></i>
                     </a>
                 </div>
                 
                 <!-- Service 2 -->
-                <div class="reveal delay-200 bg-brand-dark text-white p-10 hover:shadow-2xl hover:shadow-brand-dark/20 transition-all duration-500 group relative overflow-hidden">
+                <div class="reveal delay-100 bg-theme-secondary p-10 border border-theme hover:shadow-2xl transition-all duration-500 group relative overflow-hidden">
                     <div class="absolute top-0 left-0 w-full h-1 bg-brand-gold transform scale-x-0 group-hover:scale-x-100 transition-transform origin-left duration-500"></div>
                     <div class="w-14 h-14 bg-brand-gold text-brand-dark flex items-center justify-center mb-8 rounded-sm">
                         <i data-lucide="building-2" class="w-6 h-6"></i>
                     </div>
-                    <h3 class="text-xl font-serif font-semibold mb-4">Projetos Comerciais</h3>
-                    <p class="text-white/70 font-light leading-relaxed mb-8">Espaços corporativos e comerciais otimizados para fluxo e imagem de marca, unindo estética e funcionalidade.</p>
-                    <a href="{{ route('commercial-projects') }}" class="inline-flex items-center gap-2 text-brand-gold uppercase tracking-widest text-xs font-semibold hover:text-white transition-colors">
+                    <h3 class="text-xl font-serif font-semibold mb-4 text-theme-primary">Projetos Comerciais</h3>
+                    <p class="text-theme-secondary font-light leading-relaxed mb-8">Espaços corporativos e comerciais otimizados para fluxo e imagem de marca, unindo estética e funcionalidade.</p>
+                    <a href="{{ route('commercial-projects') }}" class="inline-flex items-center gap-2 text-theme-primary uppercase tracking-widest text-xs font-semibold hover:text-brand-gold transition-colors">
                         Saiba Mais <i data-lucide="arrow-right" class="w-4 h-4"></i>
                     </a>
                 </div>
 
                 <!-- Service 3 -->
-                <div class="reveal delay-300 bg-white p-10 border border-gray-100 hover:shadow-2xl transition-all duration-500 group relative overflow-hidden">
+                <div class="reveal delay-300 bg-theme-secondary p-10 border border-theme hover:shadow-2xl transition-all duration-500 group relative overflow-hidden">
                     <div class="absolute top-0 left-0 w-full h-1 bg-brand-gold transform scale-x-0 group-hover:scale-x-100 transition-transform origin-left duration-500"></div>
                     <div class="w-14 h-14 bg-brand-dark text-brand-gold flex items-center justify-center mb-8 rounded-sm">
                         <i data-lucide="sparkles" class="w-6 h-6"></i>
                     </div>
-                    <h3 class="text-xl font-serif font-semibold mb-4 text-brand-dark">Design de Interiores</h3>
-                    <p class="text-brand-gray font-light leading-relaxed mb-8">Curadoria de mobiliário, iluminação e texturas para criar ambientes memoráveis e sofisticados.</p>
-                    <a href="{{ route('interior-design') }}" class="inline-flex items-center gap-2 text-brand-dark uppercase tracking-widest text-xs font-semibold hover:text-brand-gold transition-colors">
+                    <h3 class="text-xl font-serif font-semibold mb-4 text-theme-primary">Design de Interiores</h3>
+                    <p class="text-theme-secondary font-light leading-relaxed mb-8">Curadoria de mobiliário, iluminação e texturas para criar ambientes memoráveis e sofisticados.</p>
+                    <a href="{{ route('interior-design') }}" class="inline-flex items-center gap-2 text-theme-primary uppercase tracking-widest text-xs font-semibold hover:text-brand-gold transition-colors">
                         Saiba Mais <i data-lucide="arrow-right" class="w-4 h-4"></i>
                     </a>
                 </div>
                 
                 <!-- Service 4 -->
-                <div class="reveal delay-100 bg-white p-10 border border-gray-100 hover:shadow-2xl transition-all duration-500 group relative overflow-hidden">
+                <div class="reveal delay-100 bg-theme-secondary p-10 border border-theme hover:shadow-2xl transition-all duration-500 group relative overflow-hidden">
                     <div class="absolute top-0 left-0 w-full h-1 bg-brand-gold transform scale-x-0 group-hover:scale-x-100 transition-transform origin-left duration-500"></div>
                     <div class="w-14 h-14 bg-brand-dark text-brand-gold flex items-center justify-center mb-8 rounded-sm">
                         <i data-lucide="box" class="w-6 h-6"></i>
                     </div>
-                    <h3 class="text-xl font-serif font-semibold mb-4 text-brand-dark">Design 3D</h3>
-                    <p class="text-brand-gray font-light leading-relaxed mb-8">Visualizações imersivas e renderizações que trazem seu projeto à realidade antes da construção.</p>
-                    <a href="{{ route('3d-design') }}" class="inline-flex items-center gap-2 text-brand-dark uppercase tracking-widest text-xs font-semibold hover:text-brand-gold transition-colors">
+                    <h3 class="text-xl font-serif font-semibold mb-4 text-theme-primary">Design 3D</h3>
+                    <p class="text-theme-secondary font-light leading-relaxed mb-8">Visualizações imersivas e renderizações que trazem seu projeto à realidade antes da construção.</p>
+                    <a href="{{ route('3d-design') }}" class="inline-flex items-center gap-2 text-theme-primary uppercase tracking-widest text-xs font-semibold hover:text-brand-gold transition-colors">
                         Saiba Mais <i data-lucide="arrow-right" class="w-4 h-4"></i>
                     </a>
                 </div>
@@ -133,7 +133,7 @@
 
     <!-- Latest from Blog -->
     @if($latestPosts->count() > 0)
-    <section class="py-24 bg-white">
+    <section class="py-24 bg-theme-secondary transition-colors duration-300">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex flex-col md:flex-row justify-between items-end mb-16 reveal">
                 <div>
@@ -141,9 +141,9 @@
                         <div class="h-px w-8 bg-brand-gold"></div>
                         <p class="text-brand-gold uppercase tracking-[0.2em] text-xs font-semibold">Jornal</p>
                     </div>
-                    <h2 class="text-3xl md:text-4xl font-serif text-brand-dark">Últimos Artigos</h2>
+                    <h2 class="text-3xl md:text-4xl font-serif text-theme-primary">Últimos Artigos</h2>
                 </div>
-                <a href="{{ route('blog') }}" class="mt-6 md:mt-0 inline-flex items-center gap-2 border-b-2 border-brand-gold text-brand-dark uppercase tracking-widest text-sm font-semibold pb-1 hover:text-brand-gold transition-colors">
+                <a href="{{ route('blog') }}" class="mt-6 md:mt-0 inline-flex items-center gap-2 border-b-2 border-brand-gold text-theme-primary uppercase tracking-widest text-sm font-semibold pb-1 hover:text-brand-gold transition-colors">
                     Ver Todos <i data-lucide="arrow-right" class="w-4 h-4"></i>
                 </a>
             </div>
@@ -160,11 +160,11 @@
                                 </div>
                             @endif
                         </div>
-                        <span class="text-xs text-brand-gray uppercase tracking-widest">{{ $post->published_at->format('M d, Y') }}</span>
-                        <h3 class="mt-2 text-xl font-serif font-bold text-brand-dark group-hover:text-brand-gold transition">
+                        <span class="text-xs text-theme-secondary uppercase tracking-widest">{{ $post->published_at->format('M d, Y') }}</span>
+                        <h3 class="mt-2 text-xl font-serif font-bold text-theme-primary group-hover:text-brand-gold transition">
                             <a href="{{ route('blog.post', $post->slug) }}">{{ $post->title }}</a>
                         </h3>
-                        <p class="mt-3 text-brand-gray text-sm font-light line-clamp-2">
+                        <p class="mt-3 text-theme-secondary text-sm font-light line-clamp-2">
                             {{ $post->excerpt ?? Str::limit(strip_tags($post->content), 100) }}
                         </p>
                     </article>
@@ -224,7 +224,7 @@
     </section>
 
     <!-- Our Process -->
-    <section class="py-24 bg-white">
+    <section class="py-24 bg-theme-secondary transition-colors duration-300">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center max-w-3xl mx-auto mb-20 reveal">
                 <div class="flex items-center justify-center gap-4 mb-6">
@@ -232,8 +232,8 @@
                     <p class="text-brand-gold uppercase tracking-[0.2em] text-xs font-semibold">Metodologia</p>
                     <div class="h-px w-8 bg-brand-gold"></div>
                 </div>
-                <h2 class="text-3xl md:text-5xl font-serif text-brand-dark mb-6">Como Transformamos Espaços</h2>
-                <p class="text-brand-gray font-light text-lg">
+                <h2 class="text-3xl md:text-5xl font-serif text-theme-primary mb-6">Como Transformamos Espaços</h2>
+                <p class="text-theme-secondary font-light text-lg">
                     Nosso processo de design é colaborativo, transparente e fundamentado na empatia pelas necessidades de quem habitará o espaço.
                 </p>
             </div>
@@ -244,27 +244,27 @@
                 
                 <!-- Step 1 -->
                 <div class="reveal delay-100 text-center">
-                    <div class="w-24 h-24 bg-brand-dark text-brand-gold flex items-center justify-center mx-auto mb-6 text-2xl font-serif z-10 relative border-4 border-white shadow-xl">01</div>
-                    <h3 class="text-xl font-bold font-serif text-brand-dark mb-3">Descoberta</h3>
-                    <p class="text-brand-gray font-light text-sm">Compreensão profunda do terreno, do cliente e dos objetivos estruturais do projeto.</p>
+                    <div class="w-24 h-24 bg-brand-dark text-brand-gold flex items-center justify-center mx-auto mb-6 text-2xl font-serif z-10 relative border-4 border-theme-secondary shadow-xl">01</div>
+                    <h3 class="text-xl font-bold font-serif text-theme-primary mb-3">Descoberta</h3>
+                    <p class="text-theme-secondary font-light text-sm">Compreensão profunda do terreno, do cliente e dos objetivos estruturais do projeto.</p>
                 </div>
                 <!-- Step 2 -->
                 <div class="reveal delay-200 text-center">
-                    <div class="w-24 h-24 bg-white text-brand-dark border-2 border-brand-gold flex items-center justify-center mx-auto mb-6 text-2xl font-serif z-10 relative shadow-xl">02</div>
-                    <h3 class="text-xl font-bold font-serif text-brand-dark mb-3">Conceito</h3>
-                    <p class="text-brand-gray font-light text-sm">Estudos volumétricos e propostas de layout, definindo a alma e identidade visual do espaço.</p>
+                    <div class="w-24 h-24 bg-theme-secondary text-theme-primary border-2 border-brand-gold flex items-center justify-center mx-auto mb-6 text-2xl font-serif z-10 relative shadow-xl">02</div>
+                    <h3 class="text-xl font-bold font-serif text-theme-primary mb-3">Conceito</h3>
+                    <p class="text-theme-secondary font-light text-sm">Estudos volumétricos e propostas de layout, definindo a alma e identidade visual do espaço.</p>
                 </div>
                 <!-- Step 3 -->
                 <div class="reveal delay-300 text-center">
-                    <div class="w-24 h-24 bg-white text-brand-dark border-2 border-brand-gold flex items-center justify-center mx-auto mb-6 text-2xl font-serif z-10 relative shadow-xl">03</div>
-                    <h3 class="text-xl font-bold font-serif text-brand-dark mb-3">Desenvolvimento</h3>
-                    <p class="text-brand-gray font-light text-sm">Detalhamento técnico minucioso e escolhas precisas de materiais para execução perfeita.</p>
+                    <div class="w-24 h-24 bg-theme-secondary text-theme-primary border-2 border-brand-gold flex items-center justify-center mx-auto mb-6 text-2xl font-serif z-10 relative shadow-xl">03</div>
+                    <h3 class="text-xl font-bold font-serif text-theme-primary mb-3">Desenvolvimento</h3>
+                    <p class="text-theme-secondary font-light text-sm">Detalhamento técnico minucioso e escolhas precisas de materiais para execução perfeita.</p>
                 </div>
                 <!-- Step 4 -->
                 <div class="reveal delay-100 text-center">
-                    <div class="w-24 h-24 bg-white text-brand-dark border-2 border-brand-gold flex items-center justify-center mx-auto mb-6 text-2xl font-serif z-10 relative shadow-xl">04</div>
-                    <h3 class="text-xl font-bold font-serif text-brand-dark mb-3">Execução</h3>
-                    <p class="text-brand-gray font-light text-sm">Acompanhamento e suporte minucioso, assegurando a fidelidade de cada traço projetado.</p>
+                    <div class="w-24 h-24 bg-theme-secondary text-theme-primary border-2 border-brand-gold flex items-center justify-center mx-auto mb-6 text-2xl font-serif z-10 relative shadow-xl">04</div>
+                    <h3 class="text-xl font-bold font-serif text-theme-primary mb-3">Execução</h3>
+                    <p class="text-theme-secondary font-light text-sm">Acompanhamento e suporte minucioso, assegurando a fidelidade de cada traço projetado.</p>
                 </div>
             </div>
         </div>
