@@ -5,7 +5,7 @@ return [
 
     'allowed_methods' => ['*'],
 
-    'allowed_origins' => ['https://chale.arquitetoricardomoraisprojetos.com/', 'https://reforma.arquitetoricardomoraisprojetos.com/'],
+    'allowed_origins' => ['https://chale.arquitetoricardomoraisprojetos.com', 'https://reforma.arquitetoricardomoraisprojetos.com'],
 
     'allowed_origins_patterns' => [],
 
