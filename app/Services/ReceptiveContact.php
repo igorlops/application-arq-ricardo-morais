@@ -83,7 +83,7 @@ class ReceptiveContact
                 'complement' => $data['complement'] ?? 'Não informado',
                 'origin' => $data['origin'] ?? 'Não informado',
             ], function ($message) use ($data) {
-                $message->to('sigo.websolutions@gmail.com')
+                $message->to('contato@arquitetoricardomoraisprojetos.com')->cc('contatoarquitetoricardomorais@gmail.com')
                     ->subject('Novo Contato - ' . $data['name']);
             });
 
