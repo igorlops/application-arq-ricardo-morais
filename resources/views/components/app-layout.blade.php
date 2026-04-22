@@ -269,7 +269,7 @@
                 
                 <div class="mt-8 pt-6">
                     <p class="text-xs uppercase tracking-widest text-gray-400 font-bold mb-3">Fale Conosco</p>
-                    <a href="mailto:contato@ricardomorais.arq.br" class="text-sm font-light text-theme-secondary block mb-1">contato@ricardomorais.arq.br</a>
+                    <a href="mailto:contato@arquitetoricardomoraisprojetos.com" class="text-sm font-light text-theme-secondary block mb-1">contato@arquitetoricardomoraisprojetos.com</a>
                     <a href="tel:{{ config('services.whatsapp.number') }}" class="text-sm font-light text-theme-secondary block">{{ config('services.whatsapp.formatted') }}</a>
                 </div>
             </nav>
@@ -295,7 +295,7 @@
                     </a>
                     <a href="#" class="hover:text-brand-gold transition-colors"><i data-lucide="instagram" class="w-5 h-5"></i></a>
                     <a href="#" class="hover:text-brand-gold transition-colors"><i data-lucide="linkedin" class="w-5 h-5"></i></a>
-                    <a href="mailto:contato@ricardomorais.arq.br" class="hover:text-brand-gold transition-colors"><i data-lucide="mail" class="w-5 h-5"></i></a>
+                    <a href="mailto:contato@arquitetoricardomoraisprojetos.com" class="hover:text-brand-gold transition-colors"><i data-lucide="mail" class="w-5 h-5"></i></a>
                 </div>
             </div>
         </div>
