@@ -213,6 +213,9 @@
                     <i data-lucide="calendar" class="w-4 h-4"></i>
                     Agendar Reunião
                 </a>
+                <a href="https://www.instagram.com/ricardomorais_arquiteto/" class="w-12 h-12 border border-white/20 flex items-center justify-center text-white hover:bg-brand-gold hover:border-brand-gold hover:text-theme-primary transition-all">
+                    <img src="{{ asset('images/instagram.svg') }}" alt="Instagram" class="w-5 h-5">
+                </a>
             </nav>
 
             <!-- Mobile Menu Toggle Button -->
