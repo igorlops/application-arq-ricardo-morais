@@ -22,12 +22,5 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        // View::composer('components.app-layout', function ($view) {
-        //     $routeName = Route::currentRouteName() ?? 'home';
-        //     $seo = SeoMeta::where('page_name', $routeName)
-        //                   ->where('status', true)
-        //                   ->first();
-        //     $view->with('seoMeta', $seo);
-        // });
     }
 }
