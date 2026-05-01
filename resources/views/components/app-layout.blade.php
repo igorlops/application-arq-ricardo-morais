@@ -214,7 +214,7 @@
                     Agendar Reunião
                 </a>
                 <a href="https://www.instagram.com/ricardomorais_arquiteto/" class="w-12 h-12 border border-white/20 flex items-center justify-center text-white hover:bg-brand-gold hover:border-brand-gold hover:text-theme-primary transition-all">
-                    <img src="{{ asset('images/instagram.svg') }}" alt="Instagram" class="w-5 h-5">
+                    <img src="{{ asset('images/instagram.png') }}" alt="Instagram" class="w-5 h-5">
                 </a>
             </nav>
 
@@ -274,6 +274,13 @@
                     <p class="text-xs uppercase tracking-widest text-gray-400 font-bold mb-3">Fale Conosco</p>
                     <a href="mailto:contato@arquitetoricardomoraisprojetos.com" class="text-sm font-light text-theme-secondary block mb-1">contato@arquitetoricardomoraisprojetos.com</a>
                     <a href="tel:{{ config('services.whatsapp.number') }}" class="text-sm font-light text-theme-secondary block">{{ config('services.whatsapp.formatted') }}</a>
+                </div>
+
+                <!-- Instagram -->
+                <div class="mt-8 w-full">
+                    <a href="https://www.instagram.com/ricardomorais_arquiteto/" class="w-12 h-12 border border-white/20 flex items-center justify-center text-white hover:bg-brand-gold hover:border-brand-gold hover:text-theme-primary transition-all">
+                        <img src="{{ asset('images/instagram.png') }}" alt="Instagram" class="w-5 h-5">
+                    </a>
                 </div>
             </nav>
         </div>
