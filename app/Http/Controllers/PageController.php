@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Contact;
 use App\Models\Post;
+use App\Models\SeoMeta;
 use Illuminate\Http\Request;
 use App\Services\ReceptiveContact;
 
@@ -15,42 +16,50 @@ class PageController extends Controller
     }
     public function home()
     {
+        $seoMeta = SeoMeta::where('page', 'home')->first();
         $latestPosts = Post::where('status', true)->latest('published_at')->take(3)->get();
-        return view('pages.home', compact('latestPosts'));
+        return view('pages.home', compact('latestPosts', 'seoMeta'));
     }
 
     public function about()
     {
-        return view('pages.about');
+        $seoMeta = SeoMeta::where('page', 'about')->first();
+        return view('pages.about', compact('seoMeta'));
     }
 
     public function services()
     {
-        return view('pages.services');
+        $seoMeta = SeoMeta::where('page', 'services')->first();
+        return view('pages.services', compact('seoMeta'));
     }
 
     public function residentialProjects()
     {
-        return view('pages.residential-projects');
+        $seoMeta = SeoMeta::where('page', 'residential-projects')->first();
+        return view('pages.residential-projects', compact('seoMeta'));
     }
 
     public function commercialProjects()
     {
-        return view('pages.commercial-projects');
+        $seoMeta = SeoMeta::where('page', 'commercial-projects')->first();
+        return view('pages.commercial-projects', compact('seoMeta'));
     }
 
     public function interiorDesign()
     {
-        return view('pages.interior-design');
+        $seoMeta = SeoMeta::where('page', 'interior-design')->first();
+        return view('pages.interior-design', compact('seoMeta'));
     }
 
     public function threeDDesign()
     {
-        return view('pages.3d-design');
+        $seoMeta = SeoMeta::where('page', '3d-design')->first();
+        return view('pages.3d-design', compact('seoMeta'));
     }
 
     public function blog()
     {
+        $seoMeta = SeoMeta::where('page', 'blog')->first();
         $posts = Post::where('status', true)->latest('published_at')->paginate(9);
         return view('pages.blog', compact('posts'));
     }
@@ -58,18 +67,36 @@ class PageController extends Controller
     public function post($slug)
     {
         $post = Post::where('slug', $slug)->where('status', true)->firstOrFail();
-        return view('pages.post', compact('post'));
+        $seoMeta = SeoMeta::where('page', $slug)->first();
+        return view('pages.post', compact('post', 'seoMeta'));
     }
 
     public function contact()
     {
-        return view('pages.contact');
+        $seoMeta = SeoMeta::where('page', 'contact')->first();
+        return view('pages.contact', compact('seoMeta'));
     }
 
     public function storeContact(Request $request)
     {
-        $response = $this->receptiveContact->contact($request);
-        
-        return redirect()->route('contact')->with($response['status'], $response['message']);
+        try {
+            $response = $this->receptiveContact->contact($request);
+            return redirect()->route('contact')->with($response['status'], $response['message']);
+        } catch (\Exception $e) {
+            return redirect()->route('contact')->with('error', 'Erro ao enviar mensagem: ' . $e->getMessage());
+        }
     }
+
+    public function privacyPolicy()
+    {
+        $seoMeta = SeoMeta::where('page', 'privacy-policy')->first();
+        return view('pages.privacy-policy', compact('seoMeta'));
+    }
+
+    public function termsOfService()
+    {
+        $seoMeta = SeoMeta::where('page', 'terms-of-service')->first();
+        return view('pages.terms-of-service', compact('seoMeta'));
+    }
+
 }
