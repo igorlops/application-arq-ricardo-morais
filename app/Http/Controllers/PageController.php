@@ -17,6 +17,7 @@ class PageController extends Controller
     public function home()
     {
         $seoMeta = SeoMeta::where('page_name', 'home')->first();
+        dd($seoMeta);
         $latestPosts = Post::where('status', true)->latest('published_at')->take(3)->get();
         return view('pages.home', compact('latestPosts', 'seoMeta'));
     }
