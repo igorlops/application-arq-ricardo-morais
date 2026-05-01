@@ -1,4 +1,4 @@
-<x-app-layout>
+<x-app-layout :seoMeta="$seoMeta">
     
     <!-- Hero Section -->
     <section class="relative h-screen flex flex-col items-center justify-center overflow-hidden bg-gray-900">

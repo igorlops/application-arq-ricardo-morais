@@ -1,4 +1,4 @@
-<x-app-layout>
+<x-app-layout :seoMeta="$seoMeta">
     
     <!-- Hero Section -->
     <section class="relative py-32 md:py-48 bg-brand-dark overflow-hidden">
