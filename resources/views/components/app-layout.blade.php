@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <meta name="google-site-verification" content="sjX2hSKq626VogbX3up1-XFzrcHjoXgeToIzsCibb_s" />
+    @dd($seoMeta)
     @if(isset($seoMeta) && $seoMeta)
         <title>{{ $seoMeta->meta_title ?? config('app.name', 'Arquitetura') }}</title>
         @if($seoMeta->meta_description)
